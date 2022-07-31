@@ -4,6 +4,8 @@
 /frontend/.pnp
 /frontend/.pnp.js
 
+/config/config.env
+
 # testing
 /frontend/coverage
 
