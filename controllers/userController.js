@@ -31,6 +31,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   // res.status(201).json({ success: true, user, token });
 });
 
+
 //Login User
 exports.loginUser = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;

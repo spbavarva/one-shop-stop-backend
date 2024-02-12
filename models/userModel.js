@@ -6,6 +6,11 @@ const crypto = require("crypto");
 require("dotenv").config();
 
 const userSchema = new mongoose.Schema({
+
+  googleId: String,
+  displayName: String,
+  email: String,
+  image: String,
   name: {
     type: String,
     required: [true, "Please Enter Your Name"],
