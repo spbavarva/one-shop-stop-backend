@@ -112,9 +112,17 @@ app.use(passport.session());
 app.get("/auth/google",passport.authenticate("google",{scope:["profile","email"]}));
 
 app.get("/auth/google/callback",passport.authenticate("google",{
-    successRedirect:"http://localhost:3006/account",
     failureRedirect:"http://localhost:3006/login"
-}))
+}), function(req, res) {
+    const options = {
+        httpOnly: true,
+        expires: new Date(
+          Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        ),
+        domain: 'localhost'
+    };
+    res.cookie("token", req.user.getJWTToken(), options).redirect('http://localhost:3006/account?gauth=true');
+});
 
 //Config
 dotenv.config({ path: "backend/config/config.env" });
