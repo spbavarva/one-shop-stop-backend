@@ -62,6 +62,10 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
     });
   }
 
+  if (req.body.variants && typeof req.body.variants === "string") {
+    req.body.variants = JSON.parse(req.body.variants);
+  }
+
   req.body.images = imagesLinks;
   req.body.user = req.user.id;
   const product = await Product.create(req.body);
@@ -147,6 +151,10 @@ exports.updateProduct = catchAsyncError(async (req, res, next) => {
     }
     console.log("req.body", req.body);
     req.body.images = imagesLinks;
+  }
+
+  if (req.body.variants && typeof req.body.variants === "string") {
+    req.body.variants = JSON.parse(req.body.variants);
   }
 
   await Product.findByIdAndUpdate(req.params.id, req.body, {
