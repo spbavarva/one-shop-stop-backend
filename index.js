@@ -8,8 +8,8 @@ const cloudinary = require("cloudinary");
 
 //Uncaught Handlig
 process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
-  console.log("server is Shutting down due to Uncaught Exception");
+  // console.log(`Error: ${err.message}`);
+  // console.log("server is Shutting down due to Uncaught Exception");
   // process.exist(1);
   process.exit?.(1);
 });

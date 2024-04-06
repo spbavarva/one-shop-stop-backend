@@ -68,7 +68,7 @@ exports.getAllOrders = catchAsyncError(async (req, res, next) => {
 exports.updateOrders = catchAsyncError(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
-  console.log("update order status");
+  // console.log("update order status");
 
   if (!order) {
     return next(new ErrorHander("Order not found with this Id", 404));
@@ -96,7 +96,7 @@ exports.updateOrders = catchAsyncError(async (req, res, next) => {
 
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
-  console.log("updateStock");
+  // console.log("updateStock");
 
   product.stock -= quantity;
 

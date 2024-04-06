@@ -54,7 +54,7 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
       folder: "products"
     });
     
-    console.log("create product 3");
+    // console.log("create product 3");
 
     imagesLinks.push({
       public_id: result.public_id,
@@ -145,7 +145,7 @@ exports.updateProduct = catchAsyncError(async (req, res, next) => {
         url: result.secure_url
       });
     }
-    console.log("req.body", req.body);
+    // console.log("req.body", req.body);
     req.body.images = imagesLinks;
   }
 
